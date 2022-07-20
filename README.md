@@ -1,61 +1,34 @@
-HELLO
-===============
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-![main](./screenshort/main.png)
+## Getting Started
 
-This is a NFT GAME based on blackjack multiplayer, First I try to use Unity and photon but I didn't like it so I switched to Godot with nakama multiplayer. (Godot version 3.4 only && Login via Metamask)
+First, run the development server:
 
-You can battle other players with Card NFTs with different abilities.
-
-# Game Screenshot
-![login](./screenshort/login.png)
-![loading](./screenshort/loading.png)
-![find](./screenshort/find.png)
-![main](./screenshort/main.png)
-![main2](./screenshort/main2.png)
-![main3](./screenshort/main3.png)
-![main4](./screenshort/main4.png)
-
-# How does my multiplayer work
-Imagine me and my friend playing chess in different rooms. When I moved my checkers from d2 to d3, I told my friend to move the checkers from d2 to d3, and if my friend moved d7 to d6.
-My friend will tell me again.
-
-# DApp
-![dapp](./screenshort/1.png)
-## Marketplace
-![dapp2](./screenshort/2.png)
-![dapp3](./screenshort/3.png)
-![dapp4](./screenshort/4.png)
-![dapp5](./screenshort/5.png)
-## Mint
-![dapp6](./screenshort/6.png)
-
-# Smart Contract
-My smart contract on Binance smart chain testnet use hardhat to deploy
-
-Example transaction
-https://testnet.bscscan.com/token/0xe97bd2b6b71647f0c3517613f19f8c561b98a7e8
-
-# How to get start
-```
-(Note Game)
-You should get Moralis API server from moralis.io with binance testnet then open Godot(v.3.4) go to Login Screen Click Login Node You'll see Server Url and App Id from the right side change it if you not see you can open Login script and update it.
-PS.You should check the Nakama connect to the your ip (ServerConnect.gd line 3)
-
-(Note Metamask)
-if you want 1 BNB go to
-https://testnet.binance.org/faucet-smart
-
-(Note Smart contract)
-if you want to deploy and get you own smart contract you can do this
-1. change the key at secret.json (key is Metamask private key you will get 92b99... then you just add 0x before your private key)
-2. npm i
-3. npm run deploy:binance
-
-How to run
-(you should have docker first)
-1. docker-compose up
-
-App: http://localhost
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
