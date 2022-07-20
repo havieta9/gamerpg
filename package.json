@@ -1,77 +1,167 @@
 {
-  "name": "kryptoknights",
-  "version": "1.0.0",
-  "description": "",
-  "main": "truffle-config.js",
-  "directories": {
-    "test": "test"
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build && npm run crush-images && npm run copy:abi",
+    "lint": "vue-cli-service lint",
+    "start": "npm run serve",
+    "crush-images": "node scripts/crush-images",
+    "copy:abi": "copyfiles -f \"../build/contracts/*.json\" ./dist/abi"
   },
   "dependencies": {
-    "@chainlink/contracts": "^0.1.7",
-    "@openzeppelin/contracts": "^3.4.1",
-    "@openzeppelin/contracts-upgradeable": "^3.4.1",
-    "@truffle/hdwallet-provider": "^1.2.6",
-    "@types/lodash": "^4.14.173",
-    "@types/seedrandom": "^3.0.1",
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-plugin-typescript": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "abdk-libraries-solidity": "2.4.0",
+    "@metamask/onboarding": "^1.0.1",
+    "@types/three": "^0.129.0",
+    "@waxio/waxjs": "^0.0.15",
+    "axios": "^0.21.1",
+    "bignumber.js": "^9.0.1",
+    "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
+    "bootstrap-vue-dialog": "^0.1.0",
     "censor-sensor": "^1.0.6",
-    "dotenv": "^8.2.0",
-    "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^7.17.0",
-    "global": "^4.4.0",
-    "lodash": "^4.17.21",
+    "cookies-eu-banner": "^2.0.1",
+    "core-js": "^3.6.5",
+    "fantastical": "^2.0.1",
+    "imagemin": "^7.0.1",
     "seedrandom": "^3.0.5",
-    "typescript": "^4.4.3",
+    "three": "^0.127.0",
+    "three-fbx-loader": "^1.0.3",
     "v-tooltip": "^2.1.3",
-    "vue": "^2.6.14",
-    "vue-router": "^3.5.2",
-    "vue-template-compiler": "^2.6.14",
-    "vuex": "^3.6.2"
+    "vue": "^2.6.11",
+    "vue-3d-model": "^1.3.1",
+    "vue-class-component": "^7.2.3",
+    "vue-property-decorator": "^9.1.2",
+    "vue-router": "^3.5.1",
+    "vuex": "^3.6.2",
+    "web3": "^1.3.4",
+    "web3-eth-contract": "^1.3.4"
   },
   "devDependencies": {
-    "@openzeppelin/test-helpers": "^0.5.11",
-    "@openzeppelin/truffle-upgrades": "^1.8.0",
-    "@truffle/config": "^1.2.41",
-    "@truffle/provider": "^0.2.32",
-    "bignumber.js": "^9.0.1",
-    "graph-data-structure": "^2.0.0",
-    "imagemin": "^8.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "lerna": "^4.0.0",
-    "npm-run-all": "^4.1.5",
-    "ohm-js": "^15.5.0",
-    "shelljs": "^0.8.4",
-    "truffle": "^5.2.3",
-    "truffle-contract-size": "^2.0.1",
-    "truffle-export-abi": "^1.0.1",
-    "truffle-plugin-verify": "^0.5.7",
-    "yargs": "^17.0.1"
+    "@types/lodash": "^4.14.168",
+    "@types/seedrandom": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.1",
+    "@typescript-eslint/parser": "^4.26.1",
+    "@vue/cli": "^4.5.12",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "^4.5.12",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "babel-eslint": "^10.1.0",
+    "copyfiles": "^2.4.1",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^6.2.2",
+    "typescript": "~4.1.5",
+    "vue-template-compiler": "^2.6.11"
   },
-  "scripts": {
-    "postinstall": "npm run contract:prepare && lerna exec -- npm install",
-    "lint": "lerna exec -- npm run lint",
-    "build:frontend": "cd frontend && npm run build",
-    "start:frontend": "cd frontend && npm start",
-    "contract:prepare": "npm run build",
-    "contract:deploy": "npm run deploy",
-    "build": "truffle compile",
-    "postbuild": "node scripts/generate-ts-from-abis.js",
-    "test": "truffle test",
-    "deploy": "truffle migrate --reset",
-    "deploy-testnet": "truffle migrate --network bsctestnet",
-    "postdeploy-testnet": "run-s \"backup-networks 97\" \"verify-contracts -- --network bsctestnet\"",
-    "deploy-mainnet-warning-be-careful-this-is-prod": "truffle migrate --network bscmainnet",
-    "postdeploy-mainnet-warning-be-careful-this-is-prod": "run-s \"backup-networks 56\" \"verify-contracts -- --network bscmainnet\"",
-    "deploy-mainnet-dry-run": "truffle migrate --network bscmainnet --dry-run",
-    "backup-networks": "node scripts/manage-networks.js backup",
-    "verify-contracts": "node scripts/verify-contracts.js"
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "project": [
+        "tsconfig.json"
+      ],
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {
+      "eqeqeq": "error",
+      "max-len": [
+        "error",
+        {
+          "ignorePattern": "//",
+          "code": 160
+        }
+      ],
+      "no-debugger": "error",
+      "no-eval": "error",
+      "no-fallthrough": "error",
+      "new-parens": "error",
+      "no-caller": "error",
+      "no-cond-assign": "error",
+      "no-throw-literal": "error",
+      "no-trailing-spaces": "error",
+      "no-undef-init": "error",
+      "no-unsafe-finally": "error",
+      "no-unused-labels": "error",
+      "no-var": "error",
+      "object-shorthand": "error",
+      "prefer-const": "error",
+      "radix": "error",
+      "use-isnan": "error",
+      "quote-props": [
+        "error",
+        "as-needed"
+      ],
+      "indent": "off",
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-use-before-define": "error",
+      "@typescript-eslint/ban-types": [
+        "error",
+        {
+          "types": {
+            "Object": {
+              "message": "Avoid using the `Object` type. Did you mean `object`?"
+            },
+            "Function": {
+              "message": "Avoid using the `Function` type. Prefer a specific function type, like `() => void`."
+            },
+            "Boolean": {
+              "message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
+            },
+            "Number": {
+              "message": "Avoid using the `Number` type. Did you mean `number`?"
+            },
+            "String": {
+              "message": "Avoid using the `String` type. Did you mean `string`?"
+            },
+            "Symbol": {
+              "message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
+            }
+          }
+        }
+      ],
+      "@typescript-eslint/type-annotation-spacing": "error",
+      "@typescript-eslint/unified-signatures": "error",
+      "@typescript-eslint/consistent-type-assertions": "error",
+      "@typescript-eslint/consistent-type-definitions": "error",
+      "@typescript-eslint/dot-notation": "error",
+      "@typescript-eslint/no-empty-interface": "error",
+      "@typescript-eslint/no-misused-new": "error",
+      "@typescript-eslint/no-namespace": "error",
+      "@typescript-eslint/no-unused-expressions": "error",
+      "@typescript-eslint/indent": [
+        "error",
+        2,
+        {
+          "FunctionDeclaration": {
+            "parameters": "first"
+          },
+          "FunctionExpression": {
+            "parameters": "first"
+          }
+        }
+      ],
+      "@typescript-eslint/quotes": [
+        "error",
+        "single"
+      ],
+      "@typescript-eslint/semi": [
+        "error",
+        "always"
+      ]
+    }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
